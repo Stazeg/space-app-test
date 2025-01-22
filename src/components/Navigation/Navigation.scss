@@ -1,0 +1,202 @@
+@use '../../theme.scss' as *;
+
+.nav {
+  display: flex;
+  justify-content: center;
+
+  height: 80px;
+  background: $black;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    max-width: $containerWidthLarge;
+  }
+
+  @media (max-width: 1247px) {
+    &__container {
+      width: $containerWidthMedium;
+    }
+  }
+
+  @media (max-width: 767px) {
+    height: 48px;
+
+    &__container {
+      margin: 0 20px;
+    }
+  }
+}
+
+.menu {
+  //Burger menu pure CSS
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 25px;
+    padding: 15px 0 15px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__btn,
+    &__btn::before,
+    &__btn::after {
+      display: block;
+      background-color: $white;
+      position: absolute;
+      height: 2px;
+      width: 25px;
+      transition: transform 0.4s cubic-bezier(0.33, 1, 0.32, 1);
+      border-radius: 2px;
+    }
+  
+    &__btn::before {
+      content: '';
+      margin-top: -8px;
+    }
+    
+    &__btn::after {
+      content: '';
+      margin-top: 8px;
+    }
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  #menu-toggle:checked {
+    + .menu-button-container {
+      .menu-button-container__btn {
+        background: rgba(255, 255, 255, 0);
+
+        &::before {
+          margin-top: 0px;
+          transform: rotate(405deg);
+        }
+
+        &::after {
+          margin-top: 0px;
+          transform: rotate(-405deg);
+        }
+      }
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+      margin: 0 27px;
+      list-style: none;
+      overflow: hidden;
+
+      .link {
+        color: $white;
+        text-decoration: none;
+      }
+
+      &:hover .link {
+        opacity: 0.6;
+        background-image: linear-gradient(98.25deg, #EBFF00 18.56%, #FF70D9 76.02%);
+        color: transparent;
+        background-clip: text;
+      }
+
+      &:hover > .link > svg > path {
+        fill: url(#CartGradient);
+      }
+    }
+  }
+
+  // Show Burger Menu for Mobile
+  @media (max-width: 767px) {
+    .menu-button-container {
+      display: flex;
+    }
+
+    .list {
+      position: absolute;
+      top: 0;
+      margin-top: 48px;
+      padding: 0;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      min-width: $screenMinWidth;
+      justify-content: center;
+      align-items: center;
+
+      &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        color: white;
+        background-color: $black;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #444;
+        }
+      }
+    }
+
+    #menu-toggle {
+      ~ .list {
+        li {
+          height: 0;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          transition: height 0.4s cubic-bezier(0.25, 1, 0.35, 1);
+    
+          .link {
+            color: $black;
+
+            > svg > path {
+              fill: $black;
+            }
+          }
+        }
+      }
+    }
+
+    #menu-toggle:checked ~ &__list li {
+      border-top: 2px solid #333;
+      height: 48px;
+      padding: 0;
+      transition: height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+      &:hover .link {
+        opacity: 1;
+      }
+
+      .link {
+        color: $white;
+
+        > svg > path {
+          fill: $white;
+        }
+
+        &:hover {
+          opacity: 0.6;
+          color:transparent;
+  
+          > svg > path {
+            opacity: 0.6;
+            fill: url(#CartGradient);
+          }
+        }
+      }
+    }
+  }
+}

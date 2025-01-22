@@ -1,0 +1,129 @@
+@use '../../theme.scss' as *;
+
+$header-bg-url: '../../assets/images/header_bg.png';
+$earth-bg-url: '../../assets/images/earth.png';
+
+$padding-btn-large: 14px 40px;
+$padding-btn-small: 5px 38px;
+
+$navHeightLarge: 490px;
+$navHeightMedium: 420px;
+$navHeightSmall: 451px;
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: $navHeightLarge;
+  background-image:
+    linear-gradient(270deg, rgba(0, 0, 0, 0) -0.52%, rgba(15, 20, 32, 0.79) 99.48%),
+    url($header-bg-url);
+  background-size: auto, cover;
+  background-repeat: no-repeat;
+
+  &__container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    max-width: $containerWidthLarge;
+    background: url($earth-bg-url) no-repeat right;
+  }
+
+  .info {
+    max-width: 100%;
+    margin: auto 0;
+    color: $white;
+
+    &__title {
+      font-size: 72px;
+      line-height: 72px;
+    }
+
+    &__subtitle {
+      font-size: 32px;
+    }
+
+    &__learn-btn {
+      background: $yellow;
+      font-family: "Lato";
+      font-size: 22px;
+      padding: $padding-btn-large;
+      border-radius: 100px;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  @media (max-width: 1247px) {
+    height: $navHeightMedium;
+    background-image:
+      url($earth-bg-url),
+      linear-gradient(270deg, rgba(0, 0, 0, 0) -0.52%, rgba(15, 20, 32, 0.79) 99.48%),
+      url($header-bg-url);
+    background-size: auto, auto, cover;
+    background-repeat: no-repeat;
+    background-position: right -115px top 20px, center, right bottom;
+
+    &__container {
+      width: $containerWidthMedium;
+      background: none;
+    }
+
+    .info {
+      &__title {
+        font-size: 48px;
+        line-height: 48px;
+      }
+  
+      &__subtitle {
+        font-size: 22px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  // Media Query Optimization
+  @media (max-width: 767px) {
+    height: $navHeightSmall;
+    background-image:
+      url($earth-bg-url),
+      linear-gradient(180deg, rgba(0, 0, 0, 0) -0.52%, rgba(15, 20, 32, 0.79) 99.48%),
+      url($header-bg-url);
+    background-position: left 30% top -125px, center, bottom left 50%;
+
+    &__container {
+      width: $containerWidthSmall;
+      background-position: right;
+    }
+
+    .info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      margin: auto 0 44px 0;
+
+      &__title {
+        text-align: center;
+        font-size: 36px;
+        line-height: 36px;
+      }
+  
+      &__subtitle {
+        text-align: center;
+        font-size: 16px;
+        line-height: 19px;
+      }
+
+      &__learn-btn {
+        width: fit-content;
+        font-size: 16px;
+        line-height: 19px;
+        padding: $padding-btn-small;
+      }
+    }
+  }
+}

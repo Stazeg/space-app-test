@@ -1,0 +1,41 @@
+@use './theme.scss' as *;
+
+body {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Lato';
+  font-weight: normal;
+  font-size: 18px;
+
+  min-width: $screenMinWidth;
+}
+
+header, footer, nav, section {
+  display: flex;
+  justify-content: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.text {
+  &__pink {
+    color: $pink;
+  }
+
+  &__yellow {
+    color: $yellow;
+  }
+}

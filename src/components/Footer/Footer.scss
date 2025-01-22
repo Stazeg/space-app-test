@@ -1,0 +1,28 @@
+@use '../../theme.scss' as *;
+
+$font-size-medium: 18px;
+$line-height-base: 28px;
+$margin-bottom: 19px;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: $black;
+  color: $yellow;
+
+  &__icon {
+    width: fit-content;
+  }
+
+  &__phrase {
+    display: block;
+
+    font-size: $font-size-medium;
+    line-height: $line-height-base;
+
+    margin: 0;
+    margin-bottom: $margin-bottom;
+  }
+}

@@ -1,0 +1,226 @@
+@use '../../theme.scss' as *;
+
+$blueGradientBackground: linear-gradient(196.2deg, #0D1E48 0%, #304571 100%);
+
+// Font Sizes
+$font-size-smallest: 14px;
+$font-size-small: 16px;
+$font-size-medium: 18px;
+$font-size-large: 24px;
+$font-size-xlarge: 32px;
+$font-size-xxlarge: 46px;
+
+// Line Heights
+$line-height-smallest: 17px;
+$line-height-small: 19px;
+$line-height-medium: 21px;
+$line-height-large: 28px;
+$line-height-xlarge: 38px;
+$line-height-xxlarge: 46px;
+
+.offers {
+  display: flex;
+  justify-content: center;
+  background: $blueGradientBackground;
+  color: $white;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: $containerWidthLarge;
+  }
+
+  &__title {
+    margin-top: 60px;
+    font-size: $font-size-xlarge;
+    line-height: $line-height-xlarge;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px; 
+  }
+
+  .card {
+    display: flex;
+    height: 350px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    flex: 1 0 0;
+
+    &__container {
+      width: 60%;
+      margin: auto auto 35px 35px;
+    }
+
+    &__title {
+      font-size: $font-size-xxlarge;
+      line-height: $line-height-xxlarge;
+    }
+
+    &__subtitle {
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+      margin: 22px 0;
+    }
+
+    &__learn-btn {
+      background: transparent;
+      border: 2px solid $yellow;
+      border-radius: 100px;
+      padding: 12px 38px;
+
+      font-family: "Lato";
+      font-size: 22px;
+      line-height: 26px;
+      color: $yellow;
+
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    &:first-child, &:nth-child(3n + 1) {
+      flex: 2 0 auto;
+      
+      .offers__card__title {
+        font-size: 74px;
+        line-height: 74px;
+      }
+
+      .offers__card__subtitle {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .info {
+    margin-bottom: 60px;
+
+    &__text {
+      font-size: 20px;
+      line-height: 24px;
+      opacity: 0.6;
+      margin: 17px 0;
+    }
+
+    &__more-btn {
+      color: $yellow;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: bold;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // Media Query Optimization
+  @media (max-width: 1247px) {
+    &__container {
+      width: $containerWidthMedium;
+    }
+
+    &__title {
+      margin-top: 55px;
+      font-size: $font-size-large;
+      line-height: $line-height-large;
+    }
+
+    &__cards {
+      gap: 30px;
+      margin-top: 30px; 
+    }
+
+    .card {
+      &__container {
+        width: 75%;
+        margin: auto auto 27px 27px;
+      }
+
+      &__title {
+        font-size: 40px;
+        line-height: 40px;
+      }
+  
+      &__subtitle {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        text-overflow: ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
+      }
+
+      &:first-child, &:nth-child(3n + 1) {
+        flex: 1 1 0;
+        
+        .offers__card__title {
+          font-size: 40px;
+        line-height: 40px;
+        }
+  
+        .offers__card__subtitle {
+          font-size: $font-size-small;
+          line-height: $line-height-small;
+        }
+      }
+
+      &__learn-btn {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+        padding: 5px 38px;
+      }
+    }
+
+    .info {
+      margin-bottom: 53px;
+  
+      &__text {
+        margin: 13px 0 12px 0;
+      }
+
+      &__text, &__more-btn {
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__container {
+      width: $containerWidthSmall;
+    }
+
+    &__title {
+      margin-top: 50px;
+      font-size: $font-size-medium;
+      line-height: $line-height-medium;
+    }
+
+    .card {
+      width: 100%;
+    }
+
+    .info {
+      margin-bottom: 50px;
+  
+      &__text {
+        margin: 20px 0;
+      }
+
+      &__text, &__more-btn {
+        font-size: $font-size-smallest;
+        line-height: $line-height-smallest;
+      }
+    }
+  }
+}
