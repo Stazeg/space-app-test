@@ -15,6 +15,12 @@ Before you begin, ensure you have the following installed:
 - **Node.js**: Version 20.11.0
 - **npm**: Version 10.2.4
 
+## 🌍 Live Demo
+
+You can view the live demo of the application hosted on GitHub Pages at the following link:
+
+https://your-username.github.io/react-space-app/
+
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
