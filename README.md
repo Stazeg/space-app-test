@@ -17,9 +17,7 @@ Before you begin, ensure you have the following installed:
 
 ## 🌍 Live Demo
 
-You can view the live demo of the application hosted on GitHub Pages at the following link:
-
-https://your-username.github.io/react-space-app/
+You can view the live demo of the application hosted on [GitHub Pages](https://stazeg.github.io/space-app-test/).
 
 ## 🚀 Getting Started
 
